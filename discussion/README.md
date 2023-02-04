@@ -10,6 +10,34 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
+## Create db-migrate
+```cmd
+$ mix ecto.gen.migration add_topics
+```
+## Run db-migrate
+```cmd
+$ mix ecto.migrate
+```
+## Create Schema
+```cmd
+$ mix help phx.gen.schema
+$ mix phx.gen.schema Topic topics title:string
+```
+## Create a context (old name model)
+```cmd
+$ mix help phx.gen.schema
+$ mix phx.gen.context Accounts User users email:string username:string
+```
+## Show Routes
+```cmd
+$ mix phx.routes
+```
+## Database query in console mode
+```cmd
+$ iex -S mix phx.server
+iex> Discussion.Repo.all(Discussion.Topic)
+```
+
 ## Learn more
 
   * Official website: https://www.phoenixframework.org/

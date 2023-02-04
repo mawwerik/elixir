@@ -1,0 +1,29 @@
+<h2>Topics</h2>
+<div>
+<%= link "Add Topic", to: Routes.topic_path(@conn, :new) %>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>title</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= for topic <- @topics do %>
+            <tr>
+            <td>
+                <span><%= topic.id %></span>
+            </td>
+            <td>
+                <span><%= topic.title %></span>
+            </td>
+            <td>
+                <%= link "Edit", to: Routes.topic_path(@conn, :edit, topic) %>
+                <%= link "Delete", to: Routes.topic_path(@conn, :delete, topic), method: :delete %>
+            </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
